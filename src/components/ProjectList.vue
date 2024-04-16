@@ -9,26 +9,41 @@ export default {
     return{
         title: 'Projects List',
         store,
+        pagination: [],
+    }
+  },
+
+  
+  methods:{
+    fetchProjects(endpoint = api.baseUrl + "projects"){
+      axios.get(endpoint).then((response) => {
+        store.projects = response.data.data;
+        this.pagination = response.data.links;
+      });
     }
   },
 
   components: {ProjectCard},
-
+  
   created(){
-    axios.get(api.baseUrl + "projects").then((response) => {
-      store.projects = response.data.data;
-      console.log(response.data.data);
-    });
+    this.fetchProjects();
   },
   
 }
 </script>
 
 <template>
-    <div class="row g-2 mt-4">
-      <h2>{{ title }}</h2>
-        <project-card v-for="project in store.projects" :project="project"/>
-    </div>
+  <div class="row g-2 mt-2">
+  <h2>{{ title }}</h2>
+      <project-card v-for="project in store.projects" :project="project"/>
+  </div>
+  <footer class="my-2" aria-label="Page navigation">
+    <ul class="pagination">
+      <li @click="fetchProjects(link.url)" class="page-item" :class="link.active ? 'active' : ''" v-for="link in pagination">
+        <a class="page-link" href="#" v-html="link.label"></a>
+      </li>
+    </ul>
+  </footer>
 </template>
 
 <style lang="scss" scoped>

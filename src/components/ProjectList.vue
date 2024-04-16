@@ -39,7 +39,15 @@ export default {
   </div>
   <footer class="my-2" aria-label="Page navigation">
     <ul class="pagination">
-      <li @click="fetchProjects(link.url)" class="page-item" :class="link.active ? 'active' : ''" v-for="link in pagination">
+      <li 
+      @click="fetchProjects(link.url)" 
+      class="page-item" 
+      :class="{
+        active: link.active,
+        disabled: !link.url,
+        }" 
+      v-for="link in pagination"
+      >
         <a class="page-link" href="#" v-html="link.label"></a>
       </li>
     </ul>

@@ -1,11 +1,5 @@
 <script>
-export default {
-    data(){
-        return{
-            test: 'header',
-        }
-    }
-}
+export default { /**/ }
 </script>
 
 <template>

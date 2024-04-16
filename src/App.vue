@@ -1,36 +1,26 @@
 <script>
-import axios from 'axios';
-
-import ProjectCard from './components/ProjectCard.vue' ;
+import ProjectList from './components/ProjectList.vue' ;
 import HeaderApp from './components/HeaderApp.vue' ;
 
-import { store, api } from './store';
 
 export default {
   data(){
     return{
       test: 'App',
-      projects: [],
-      store,
     }
   },
   
-  components:{ ProjectCard, HeaderApp },
+  components:{ ProjectList, HeaderApp },
 
-  created(){
-    axios.get(api.baseUrl + 'projects').then((response)=>{
-      this.projects = response.data.data;
-      console.log(response.data.data)
-    });
-  }
 }
 </script>
 
 <template>
   <div id="app">
     <header-app/>
-
-    <project-card :projects="projects"/>
+    <div class="container">
+      <project-list/>
+    </div>
 
   </div>
 </template>

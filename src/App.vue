@@ -1,5 +1,5 @@
 <script>
-import ProjectList from './components/ProjectList.vue' ;
+//import ProjectList from './components/ProjectList.vue' ;
 import HeaderApp from './components/HeaderApp.vue' ;
 
 
@@ -10,7 +10,7 @@ export default {
     }
   },
   
-  components:{ ProjectList, HeaderApp },
+  components:{ HeaderApp },
 
 }
 </script>
@@ -19,7 +19,8 @@ export default {
   <div id="app">
     <header-app/>
     <div class="container">
-      <project-list/>
+    <router-view></router-view>
+      <!-- <project-list/> -->
     </div>
 
   </div>

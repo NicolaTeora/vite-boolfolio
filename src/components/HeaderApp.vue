@@ -1,4 +1,6 @@
 <script>
+import { RouterLink } from 'vue-router';
+
 export default { /**/ }
 </script>
 
@@ -11,8 +13,8 @@ export default { /**/ }
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                <a class="nav-link" href="#">link 1</a>
+                <router-link :to="{ name:'home' }" class="nav-link active" aria-current="page">Home</router-link>
+                <router-link :to="{ name:'projects' }" class="nav-link">Projects</router-link>
                 <a class="nav-link" href="#">link 2</a>
             </div>
         </div>

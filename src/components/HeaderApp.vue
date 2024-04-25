@@ -13,8 +13,8 @@ export default { /**/ }
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <router-link :to="{ name:'home' }" class="nav-link active" aria-current="page">Home</router-link>
-                <router-link :to="{ name:'projects' }" class="nav-link">Projects</router-link>
+                <router-link :to="{ name:'home' }" class="nav-link" :class="{ active: ture }" aria-current="page">Home</router-link>
+                <router-link :to="{ name:'projects' }" class="nav-link" :class="{ active: ture }">Projects</router-link>
                 <a class="nav-link" href="#">link 2</a>
             </div>
         </div>
